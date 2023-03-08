@@ -9,7 +9,12 @@ import vuetify from 'vite-plugin-vuetify'
 export default defineConfig({
   plugins: [
 		vue(),
-		vuetify({ autoImport: true }),
+		vuetify({ 
+            autoImport: true,
+            styles: {
+                configFile: 'src/style/settings.scss'
+            }
+        }),
 	],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") }

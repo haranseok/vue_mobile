@@ -1,0 +1,26 @@
+@import url('@/style/reset/reset.scss');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/** layout **/
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/** display **/
+
+.jcsb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
