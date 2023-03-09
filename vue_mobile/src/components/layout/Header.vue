@@ -1,7 +1,12 @@
 <template>
     <header :class="scrollY > 0 ? 'h_bg':''">
-        <div class="container jcsb">
-            <v-btn text>홈</v-btn>
+        <div class="container">
+                <div class="logo">
+                    gallery st
+                </div>
+            <v-btn 
+                variant="text" 
+                icon="mdi-bell-outline" />
         </div>
     </header>
 </template>
@@ -25,16 +30,35 @@ headerBgChange();
 header{
     width: 100%;
     height: 60px;
-    position: sticky;
+    position: fixed;
     top: 0;
+    z-index: 9;
     .container{
+        display: flex;
+        justify-content: end;
+        position: relative;
         height: 60px;
         align-items: center;
         text-transform: uppercase;
+        .v-btn{
+            color: #444;
+        }
+        .logo{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+        }
     }
 }
 .h_bg{
-    color: #fff;
-    background: rgb(123, 138, 143);
+    color: #444;
+    background: #fff;
+    .container{
+        .v-btn{
+            color: #444;
+        }
+    }
 }
 </style>
