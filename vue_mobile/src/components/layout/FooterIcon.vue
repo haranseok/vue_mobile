@@ -36,6 +36,7 @@ function btnClick(option: number) {
         bottom: 0;
         border-top: 1px solid #eee;
         background: #fff;
+        z-index: 99;
         .container{
             width: 100%;
             justify-content: space-between;

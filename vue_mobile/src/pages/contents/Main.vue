@@ -54,7 +54,6 @@ div{
     width: 100%;
     max-width: 980px;
     margin: 0 auto;
-    background: #d0d0d0;
     .swiper_box{
         width: 100%;
         height: 100%;
