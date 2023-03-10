@@ -5,14 +5,16 @@
             <h4 class="sub_title">따뜻한 저작권료가 전해주는 봄이 오는 소식!</h4>
             <div class="swiper_container">
                 <swiper
-                    :modules="modules"
-                    :autoplay="{delay:2500}"
                     :spaceBetween="20"
                     :slidesPerView="'auto'"
                     >
                     <swiper-slide v-for="(spring, i) in thema" :key="i">
                         <div class="spring_music">
                             <img :src="`/images/sections/section_${spring.img}.jpg`" alt="">
+                            <div class="text_box">
+                                <p>{{ spring.title }}</p>
+                                <span>{{ spring.singer }}</span>
+                            </div>
                         </div>
                     </swiper-slide>
                 </swiper>            
@@ -20,15 +22,34 @@
         </div>
         <div class="imgList">
             <h4 class="sub_title">저작권료 대비 현재가가 낮은 곡</h4>
+            <div class="swiper_container">
+                <swiper
+                    :spaceBetween="20"
+                    :slidesPerView="'auto'"
+                    >
+                    <swiper-slide v-for="(copy, i) in copyright" :key="i">
+                        <div class="spring_music">
+                            <div class="shadow_box">
+                                <img :src="`/images/sections/section_${copy.img}.jpg`" alt="">
+                            </div>
+                            <div class="text_box">
+                                <p>{{ copy.title }}</p>
+                                <span>저작권료 수익률</span>
+                                <span class="revenue">{{ copy.revenue }}%</span>
+                            </div>
+                        </div>
+                    </swiper-slide>
+                </swiper>            
+            </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay } from 'Swiper';
 import 'swiper/css'
-import ThemaData from '@/data/thema.json';
+import ThemaData from '@/data/Thema.json';
+import CopyRight from '@/data/Copyright.json'
 
 export default {
     components: {
@@ -37,10 +58,10 @@ export default {
     },
     setup() {
         const thema = ThemaData;
-        console.log(thema)
+        const copyright =CopyRight;
         return {
             thema,
-            modules: [Autoplay]
+            copyright
         }
     }
 }
@@ -71,9 +92,38 @@ export default {
     }
 }
 .spring_music{
+    .shadow_box{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: inset -6px -6px 4px rgba(0,0,0,.25), inset 2px 6px 10px #fff;
+    }
     img{
         width: 100px;
         border-radius: 50%;
+    }
+    .text_box{
+        text-align: center;
+        p{
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &::before{
+                color: rgba(0,0,0,0);
+                content:'00';
+                background:url('@/assets/images/badge_neigh.svg') no-repeat;
+            }
+        }
+        span{
+            display: block;
+            color: #666;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .revenue{
+            color:#ee495a;
+        }
     }
 }
 @media screen and (min-width: 980px) {
@@ -85,6 +135,14 @@ export default {
     img{
         width: 100%;
         border-radius: 50%;
+    }
+    .text_box{
+        p{
+            font-size: 14px;
+        }
+        span{
+            font-size: 14px;
+        }
     }
 }
  
