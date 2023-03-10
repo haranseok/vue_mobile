@@ -1,5 +1,5 @@
 <template>
-    <header :class="scrollY > 0 ? 'h_bg':''">
+    <header :class="scrollY > 0 ? 'h_bg':''" >
         <div class="container">
                 <div class="logo">
                     gallery st
