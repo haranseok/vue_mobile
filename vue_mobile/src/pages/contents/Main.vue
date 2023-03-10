@@ -1,20 +1,30 @@
 <template>
-    <v-main>
-        main
-    </v-main>
-</template>
-
-<script>
-    export default {
+    <div>
         
+    <swiper :modules="modules" :pagination="{ clickable: true }" :allow-touch-move="true">
+      <swiper-slide></swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper>
+    </div>
+</template>
+  
+  <script>
+    import { Pagination } from 'Swiper'
+    import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+  
+    import 'swiper/css'
+    import 'swiper/css/pagination'
+  
+    export default {
+      components: {
+        Swiper,
+        SwiperSlide
+      },
+      setup() {
+        return {
+          modules: [Pagination]
+        }
+      }
     }
-</script>
-
-<style lang="scss" scoped>
-.v-main{
-    min-height: 500px;
-    padding: 24% 0;
-    background: #ddd;
-    text-align: center;
-}
-</style>
+  </script>
