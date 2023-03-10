@@ -29,7 +29,7 @@ footer{
     width: 100%;
     .f_top{
         width: 100%;
-        padding: 10px 0;
+        padding: 10px 1%;
         border-top: 1px solid #d1d0d0;
         border-bottom: 1px solid #d1d0d0;
         .container{
@@ -43,7 +43,7 @@ footer{
     }
 
     & > .container{
-        padding: 2% 0;
+        padding: 2% 1%;
     }
     
     .f_bottom{
@@ -68,15 +68,18 @@ footer{
         }
     }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     footer{
+        .f_top{
+            font-size: 3vw;
+        }
         .container{
             padding: 0 3%;
         }
         .f_bottom,.f_email{
             max-width: 420px;
             margin: 0;
-            padding: 3%;
+            padding: 3% 0;
             color: #555;
             line-height: 1.8;
         }

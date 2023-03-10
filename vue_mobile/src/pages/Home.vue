@@ -2,6 +2,7 @@
     <div>
         <Headers />
         <Main />
+        <ThemaView />
         <Footer />
         <FooterIcon />
     </div>
@@ -10,6 +11,7 @@
 <script setup>
 import Headers from '@/components/layout/Header.vue';
 import Main from '@/pages/contents/Main.vue';
+import ThemaView from '@/pages/contents/ThemaView.vue'
 import Footer from '@/components/layout/Footer.vue'
 import FooterIcon from '@/components/layout/FooterIcon.vue';
 </script>

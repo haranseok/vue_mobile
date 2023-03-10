@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer class="icon_footer">
         <ul class="container flex">
             <li 
                 v-for="(list, i) in iconList.icon" :key="i" 
@@ -34,6 +34,7 @@ function btnClick(option: number) {
         width: 100%;
         position: fixed;
         bottom: 0;
+        border-top: 1px solid #eee;
         background: #fff;
         .container{
             width: 100%;
@@ -47,7 +48,7 @@ function btnClick(option: number) {
                 color: #aaa;
             }
             .active{
-                color: #000;
+                color: #ee495a;
             }
         }
     }

@@ -6,8 +6,15 @@ body{
     box-sizing: border-box;
 }
 
-/** common **/
+h2 {
+    color: #222;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 35px;
+}
 
+
+/** common **/
 .cp {
     cursor: pointer;
 }
@@ -15,7 +22,7 @@ body{
 /** layout **/
 
 .container{
-    max-width: 1104px;
+    max-width: 980px;
     margin: 0 auto;
 }
 

@@ -56,10 +56,5 @@ header{
 }
 .h_bg{
     background: #fff;
-    .container{
-        .v-btn{
-            color: #ee495a;
-        }
-    }
 }
 </style>
