@@ -56,5 +56,6 @@ header{
 }
 .h_bg{
     background: #fff;
+    border-bottom: 1px solid #eee;
 }
 </style>

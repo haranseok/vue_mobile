@@ -8,7 +8,7 @@
                     :spaceBetween="20"
                     :slidesPerView="'auto'"
                     >
-                    <swiper-slide v-for="(spring, i) in thema" :key="i">
+                    <swiper-slide v-for="(spring, i) in thema" :key="i" class="cycle_swiper">
                         <div class="spring_music">
                             <img :src="`/images/sections/section_${spring.img}.jpg`" alt="">
                             <div class="text_box">
@@ -27,7 +27,7 @@
                     :spaceBetween="20"
                     :slidesPerView="'auto'"
                     >
-                    <swiper-slide v-for="(copy, i) in copyright" :key="i">
+                    <swiper-slide v-for="(copy, i) in copyright" :key="i" class="cycle_swiper">
                         <div class="spring_music">
                             <div class="shadow_box">
                                 <img :src="`/images/sections/section_${copy.img}.jpg`" alt="">
@@ -42,11 +42,33 @@
                 </swiper>            
             </div>
         </div>
+        <div class="banner_box">
+            <section class="swiper_container">
+                <swiper
+                    :modules="modules"
+                    :loop="true"
+                    :autoplay="{delay:2500}"
+                    :spaceBetween="10"
+                    :slidesPerView="'auto'"
+                    :pagination="{
+                        type: 'fraction'
+                    }"
+                    >
+                    <swiper-slide class="swiper_banner" v-for="(banner, i) in bannerImg" :key="i">
+                        <img :src="`/images/banner/banner_${banner}.png`" alt="">
+                    </swiper-slide>
+                </swiper>            
+            </section>
+            <section class="icons">
+
+            </section>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Autoplay, Pagination } from 'Swiper'
 import 'swiper/css'
 import ThemaData from '@/data/Thema.json';
 import CopyRight from '@/data/Copyright.json'
@@ -58,21 +80,42 @@ export default {
     },
     setup() {
         const thema = ThemaData;
-        const copyright =CopyRight;
+        const copyright = CopyRight;
+        const bannerImg = ['01','02','03','04','05','06','07'];
+        
         return {
             thema,
-            copyright
+            copyright,
+            bannerImg,
+            modules: [ Autoplay, Pagination ]
         }
     }
 }
 
 </script>
 <style>
+    .swiper_banner{
+        max-width: 300px;
+    }
+
     .swiper-slide{
         width: 100%;
         height: 100%;
+    }
+    
+    .cycle_swiper{
         margin: 10px 0;
         max-width: 100px;
+    }
+    .swiper-pagination-fraction{
+        left: 80%;
+        width: 35px;
+        padding: 2px;
+        border-radius: 2px;
+        font-size: 10px;
+        font-weight: bold;
+        color: #fff;
+        background: rgba(0,0,0,0.4);
     }
 @media screen and (min-width: 980px) {
     .swiper-slide{
@@ -86,9 +129,10 @@ export default {
 <style lang="scss" scoped>
 .container{
     padding: 5% 2%;
+    background: #fff;
     h4{
         margin: 12px 0;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
 .spring_music{
@@ -105,6 +149,7 @@ export default {
     .text_box{
         text-align: center;
         p{
+            font-size: 14px;
             font-weight: bold;
             white-space: nowrap;
             overflow: hidden;
@@ -126,9 +171,17 @@ export default {
         }
     }
 }
+.swiper_banner{
+    img{
+        width: 100%;
+    }    
+}
 @media screen and (min-width: 980px) {
 .container{
     padding: 5% 0;
+    h4{
+        font-size: 1rem;
+    }
 }
 
 .spring_music{
