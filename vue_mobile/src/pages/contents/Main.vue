@@ -1,16 +1,21 @@
 <template>
-    <div>
-        
-    <swiper :modules="modules" :pagination="{ clickable: true }" :allow-touch-move="true">
-      <swiper-slide></swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-    </swiper>
+    <div>        
+        <swiper 
+            :modules="modules" 
+            :pagination="{ clickable: true }" 
+            :allow-touch-move="true"
+            :autoplay="{ delay: 3000, disableOnInteraction: false}">
+        <swiper-slide v-for="(main, i) in mainImgs" :key="i">
+            <div class="swiper_box">
+                <img :src="`/images/main/main_0${main}.png`" alt="">
+            </div>
+        </swiper-slide>
+        </swiper>
     </div>
 </template>
   
-  <script>
-    import { Pagination } from 'Swiper'
+<script lang="ts">
+    import { Pagination, Autoplay } from 'Swiper'
     import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
   
     import 'swiper/css'
@@ -23,8 +28,23 @@
       },
       setup() {
         return {
-          modules: [Pagination]
+          modules: [Pagination, Autoplay],
+          mainImgs: ['1','2','3','4','5']
         }
       }
     }
-  </script>
+</script>
+<style lang="scss" scoped>
+div{
+    width: 100%;
+    background: #d0d0d0;
+    .swiper_box{
+        width: 100%;
+        height: 100%;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+</style>

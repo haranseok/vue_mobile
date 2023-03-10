@@ -2,7 +2,7 @@
     <header :class="scrollY > 0 ? 'h_bg':''" >
         <div class="container">
                 <div class="logo">
-                    gallery st
+                    <img src="@/assets/images/logo.png" alt="">
                 </div>
             <v-btn 
                 variant="text" 
@@ -41,23 +41,24 @@ header{
         align-items: center;
         text-transform: uppercase;
         .v-btn{
-            color: #444;
+            color: #ee495a;
         }
         .logo{
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.2rem;
+            img{
+                height: 24px;
+            }
         }
     }
 }
 .h_bg{
-    color: #444;
     background: #fff;
     .container{
         .v-btn{
-            color: #444;
+            color: #ee495a;
         }
     }
 }
