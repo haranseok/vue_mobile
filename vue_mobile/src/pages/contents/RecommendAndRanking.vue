@@ -4,7 +4,7 @@
             <h2>취향 추천 곡</h2>
             <swiper
                 :loop="true"
-                :slidesPreView="auto"
+                :slidesPreView="'auto'"
                 :spaceBetween="10"
             >
                 <swiper-slide class="swiper_recommend" v-for="(rec, i) in data" :key="i">
@@ -27,26 +27,48 @@
         </section>
         <section class="ranking">
             <h2>뮤카차트 top 5</h2>
+            <TabMenu :menu="menus" @clickTab="clickTab">
+                <template #tab_1>
+                    <div>
+                        aa
+                    </div>
+                </template>
+                <template #tab_2>
+                    <div>
+                        bb                       
+                    </div>
+                </template>
+            </TabMenu>
         </section>
     </article>
 </template>
 
-<script>
+<script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import recommendData from '@/data/Recommend.json';
+import TabMenu from '@/components/item/TabMenu.vue'
+const data = recommendData;
+const menus = ['거래많은 곡 (전일)','저작권료 높은곡 (전월)']
 
-export default {
-    components: {
-        Swiper,
-        SwiperSlide
-    },
-    setup(){
-        const data = recommendData;
-        return{
-            data
-        }
-    }        
+function clickTab(val:number){
+    console.log('val' + val)
 }
+// export default {
+//     components: {
+//         Swiper,
+//         SwiperSlide,
+//         Tab
+//     },
+//     setup(){
+//         const data = recommendData;
+//         return{
+//             data,
+//             menu:['거래많은 곡 (전일)', '저작권료 높은곡 (전월)']
+//         }
+//     }        
+// }
+Swiper;
+SwiperSlide;
 </script>
 <style>
 .swiper_recommend {
