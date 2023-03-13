@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <article class="container">
         <h2>테마별 추천곡</h2>
-        <div class="imgList">
+        <section class="imgList">
             <h4 class="sub_title">따뜻한 저작권료가 전해주는 봄이 오는 소식!</h4>
             <div class="swiper_container">
                 <swiper
@@ -19,8 +19,8 @@
                     </swiper-slide>
                 </swiper>            
             </div>
-        </div>
-        <div class="imgList">
+        </section>
+        <section class="imgList">
             <h4 class="sub_title">저작권료 대비 현재가가 낮은 곡</h4>
             <div class="swiper_container">
                 <swiper
@@ -29,9 +29,7 @@
                     >
                     <swiper-slide v-for="(copy, i) in copyright" :key="i" class="cycle_swiper">
                         <div class="spring_music">
-                            <div class="shadow_box">
-                                <img :src="`/images/sections/section_${copy.img}.jpg`" alt="">
-                            </div>
+                            <img :src="`/images/sections/section_${copy.img}.jpg`" alt="">
                             <div class="text_box">
                                 <p>{{ copy.title }}</p>
                                 <span>저작권료 수익률</span>
@@ -41,29 +39,8 @@
                     </swiper-slide>
                 </swiper>            
             </div>
-        </div>
-        <div class="banner_box">
-            <section class="swiper_container">
-                <swiper
-                    :modules="modules"
-                    :loop="true"
-                    :autoplay="{delay:2500}"
-                    :spaceBetween="10"
-                    :slidesPerView="'auto'"
-                    :pagination="{
-                        type: 'fraction'
-                    }"
-                    >
-                    <swiper-slide class="swiper_banner" v-for="(banner, i) in bannerImg" :key="i">
-                        <img :src="`/images/banner/banner_${banner}.png`" alt="">
-                    </swiper-slide>
-                </swiper>            
-            </section>
-            <section class="icons">
-
-            </section>
-        </div>
-    </div>
+        </section>
+    </article>
 </template>
 
 <script lang="ts">
@@ -81,12 +58,10 @@ export default {
     setup() {
         const thema = ThemaData;
         const copyright = CopyRight;
-        const bannerImg = ['01','02','03','04','05','06','07'];
         
         return {
             thema,
             copyright,
-            bannerImg,
             modules: [ Autoplay, Pagination ]
         }
     }
@@ -94,10 +69,6 @@ export default {
 
 </script>
 <style>
-    .swiper_banner{
-        max-width: 300px;
-    }
-
     .swiper-slide{
         width: 100%;
         height: 100%;
@@ -106,16 +77,6 @@ export default {
     .cycle_swiper{
         margin: 10px 0;
         max-width: 100px;
-    }
-    .swiper-pagination-fraction{
-        left: 80%;
-        width: 35px;
-        padding: 2px;
-        border-radius: 2px;
-        font-size: 10px;
-        font-weight: bold;
-        color: #fff;
-        background: rgba(0,0,0,0.4);
     }
 @media screen and (min-width: 980px) {
     .swiper-slide{
@@ -136,12 +97,6 @@ export default {
     }
 }
 .spring_music{
-    .shadow_box{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        box-shadow: inset -6px -6px 4px rgba(0,0,0,.25), inset 2px 6px 10px #fff;
-    }
     img{
         width: 100px;
         border-radius: 50%;
@@ -170,11 +125,6 @@ export default {
             color:#ee495a;
         }
     }
-}
-.swiper_banner{
-    img{
-        width: 100%;
-    }    
 }
 @media screen and (min-width: 980px) {
 .container{
