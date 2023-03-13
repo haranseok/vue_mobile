@@ -25,7 +25,7 @@
                 >취향 추가하기</v-btn>
             </div>           
         </section>
-        <section class="lanking">
+        <section class="ranking">
             <h2>뮤카차트 top 5</h2>
         </section>
     </article>
@@ -70,7 +70,7 @@ export default {
             text-transform: uppercase;
         }
     }
-    .lanking{
+    .ranking{
         margin-top: 10px;
     }
 }
@@ -108,6 +108,7 @@ export default {
         width: 100%;
         padding: 8% 0;
         text-align: center;
+        backdrop-filter: blur(4px);
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, #fff 81.25%);
         z-index: 99;
         strong{

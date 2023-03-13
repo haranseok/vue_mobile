@@ -128,7 +128,6 @@ export default {
 }
 @media screen and (min-width: 980px) {
 .container{
-    padding: 5% 0;
     h4{
         font-size: 1rem;
     }
