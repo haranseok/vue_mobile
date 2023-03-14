@@ -12,6 +12,10 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/load',
         component: () => import('@/components/layoutView/LoadLayout.vue')
+    },
+    {
+        path: '/nav',
+        component: () => import('@/components/item/Nav.vue')
     }
 ];
 

@@ -20,7 +20,8 @@ let current = ref(0)
 
 let iconList = ref({
     icon: ['mdi-home-outline','mdi-shopping-outline','mdi-wallet-outline','mdi-newspaper-variant-outline','mdi-dots-horizontal'],
-    text: ['홈','마켓','자산','매거진','더보기']
+    text: ['홈','마켓','자산','매거진','더보기'],
+    // href: ['','','','','/nav']
 });
 
 function btnClick(option: number) {
